@@ -1,0 +1,51 @@
+<% include ../partials/header.ejs %>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+        <br>
+        <br>
+        <br>
+        <br>
+          <h3>Surveys List </h3>
+          <!--This is test with in this comment. Please delete it -->
+          <a href="/surveys/shortanswers" class="btn btn-primary">
+              <i class="fa fa-pencil-square-o"></i> Short Answer</a>
+              <br>
+          <a href="/surveys/ratinganswers" class="btn btn-primary">
+              <i class="fa fa-pencil-square-o"></i> Rating Answer</a>
+           <!--This is test with in this comment. Please delete it -->
+           
+          <table class="table table-bordered table-striped table-hover">
+            <tr>
+              <th class="text-center">Name</th>
+              <th class="text-center">Title</th>
+              <th class="text-center">Type</th>
+              <th class="text-center">Active</th>
+              <th class="text-center">Go To Survey</th>
+            </tr>
+            <!-- Template Row -->
+
+            <!--  Use the table from games/index to populate the created survey table.
+            The active code will show error if I leave it out here -->
+            <!--In go to survey column please provide the link to the survey -->
+            
+           <% for (let count = 0; count < surveys.length; count++) { %>
+                <tr>
+                  <td><%= surveys[count].Title %></td>
+                  <td class="text-center">$<%= surveys[count]._id %></td>
+                   <td class="text-center">$<%= surveys[count].survey_question1 %></td>   
+                         <td> <a href="/surveys/<%= surveys[count]._id %>" > Show survey </td>
+              </tr>
+                <% } %>   
+            
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+<% include ../partials/footer.ejs %>
+
+
